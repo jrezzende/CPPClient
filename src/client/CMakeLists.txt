@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.9)
 project(client CXX)
 
+include_directories(${RAPIDJSON_INCLUDE_DIRS})
+
 include_directories(${CURL_INCLUDE_DIRS})
 include_directories(${RAPIDJSON_INCLUDE_DIRS})
 
