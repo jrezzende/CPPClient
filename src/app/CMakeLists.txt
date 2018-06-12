@@ -1,10 +1,18 @@
-file(GLOB APP "*.h" "*.cpp")
+cmake_minimum_required(VERSION 3.9)
+project(app CXX)
 
-include_directories(${CURL_INCLUDE_DIRS})
+set(
+	APP_HEADERS
+	App.h
+)
 
-add_executable(app ${APP})
+set(
+	APP_SOURCES
+	App.cpp
+	main.cpp
+)
 
-target_link_libraries(app curl)
+add_executable(app ${APP_HEADERS} ${APP_SOURCES})
 
 message(STATUS ${CMAKE_CURRENT_BINARY_DIR})
 message(STATUS ${CURL_DLLS_DIR})

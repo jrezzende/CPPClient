@@ -8,8 +8,6 @@ class Client
 {
    Client()= default;
    ~Client()= default;
-
-   int curlTest();
 };
 
 #endif // INCLUDED_CLIENT_H
