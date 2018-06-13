@@ -26,4 +26,9 @@ class HTTPStatusCode4XX : public HTTPStatusCode
    virtual const char* what() const { return "Client request misguided."; }
 };
 
+class HTTPStatusCode5XX : public HTTPStatusCode
+{
+   virtual const char* what() const { return "Server couldn't resolve request."; }
+};
+
 #endif // INCLUDED_HTTPSTATUSCODE_H

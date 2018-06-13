@@ -10,12 +10,13 @@ set(
 	CLIENT_HEADERS
 	Client.h
 	HTTPStatusCode.h
-	HTTPHeader.h
-	HTTPBody.h
-	Reply.h
+	Header.h
+	Response.h
 	Request.h
 	QueryString.h
 	Host.h
+	MessageComposer.h
+	CurlMessage.h
 )
 
 set(
