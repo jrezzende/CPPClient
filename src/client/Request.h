@@ -17,7 +17,7 @@ class Request
    void setHost(const char* host) { requestHost.address= host; }
    void setPort(const unsigned short port) { requestHost.port= port; }
    void setRoute(const char* route) { requestHost.route= route;}
-   void setQuery(const QueryString& query) { requestHost.queryString= &query; }
+   void setQuery(QueryString& query) { requestHost.queryString= &query; }
 
    void addBodyParam(const std::string& data) { curlmsg.appendBodyParam(data); }
    void addHeaderParam(const std::string& data) { curlmsg.appendHeader(data); }

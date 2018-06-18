@@ -17,6 +17,9 @@ set(
 	Host.h
 	MessageComposer.h
 	CurlMessage.h
+	HTTPMethods.h
+	PostMethod.h
+	GetMethod.h
 )
 
 set(
