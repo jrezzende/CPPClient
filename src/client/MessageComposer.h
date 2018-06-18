@@ -1,6 +1,6 @@
 #pragma once
-#ifndef INCLUDED_MESSAGECOMPOSER_H
-#define INCLUDED_MESSAGECOMPOSER_H
+#ifndef INCLUDED_MESSAGE_COMPOSER_H
+#define INCLUDED_MESSAGE_COMPOSER_H
 
 #include <string>
 
@@ -25,4 +25,4 @@ public:
    }
 };
 
-#endif // !INCLUDED_MESSAGECOMPOSER_H
+#endif // !INCLUDED_MESSAGE_COMPOSER_H

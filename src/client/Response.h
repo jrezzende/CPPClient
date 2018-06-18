@@ -2,11 +2,12 @@
 #ifndef INCLUDED_RESPONSE_H
 #define INCLUDED_RESPONSE_H
 
+#include <curl/curl.h>
 #include <string>
 
 class Response
 {
-   unsigned short status;
+   CURLcode status;
    
    std::string headerData;
    std::string bodyData;
@@ -17,13 +18,12 @@ public:
 
    void appendHeaderParam(const std::string& param) { headerData.append(param.c_str()); }
    void appendBodyParam(const std::string& param) { bodyData.append(param.c_str()); }
-   void setStatusCode(unsigned short code) { status= code; }
+   void setStatusCode(CURLcode code) { status= code; }
 
-   unsigned short statusCode() { return status; }
+   CURLcode statusCode() { return status; }
 
    const std::string& header() { return headerData; }
    const std::string& body() { return bodyData; }
-
 };
 
 #endif // !INCLUDED_RESPONSE_H

@@ -24,7 +24,7 @@ std::size_t HTTPMethods::headerCallBack(const char* data, std::size_t size, std:
    return size* nmemb;
 }
 
-Response HTTPMethods::request(Request& req)
+Response HTTPMethods::answer(Request& req)
 {
    CURLcode res;
 
@@ -38,11 +38,16 @@ Response HTTPMethods::request(Request& req)
    res= curl_easy_perform(curl);
 
    if (res == CURLcode::CURLE_OK) {
-      unsigned short status;
+      CURLcode status;
       curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &status);
       content.setStatusCode(status);
 
       curl_easy_cleanup(curl);
       return content;
    }
+   
+   Response badResponse;
+   badResponse.setStatusCode(res);
+
+   return badResponse;
 }

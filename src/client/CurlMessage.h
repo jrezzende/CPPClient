@@ -1,6 +1,6 @@
 #pragma once
-#ifndef INCLUDED_CURLMESSAGE_H
-#define INCLUDED_CURLMESSAGE_H
+#ifndef INCLUDED_CURL_MESSAGE_H
+#define INCLUDED_CURL_MESSAGE_H
 
 #include "curl\curl.h"
 
@@ -31,4 +31,4 @@ public:
    }
 };
 
-#endif // !INCLUDED_CURLMESSAGE_H
+#endif // !INCLUDED_CURL_MESSAGE_H

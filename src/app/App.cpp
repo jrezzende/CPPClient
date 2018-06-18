@@ -1,7 +1,3 @@
+#include <curl\curl.h>
+#include <iostream>
 #include "App.h"
-
-
-int App::curltest()
-{
-   return 0;
-}

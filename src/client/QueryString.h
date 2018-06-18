@@ -1,6 +1,6 @@
 #pragma once
-#ifndef INCLUDED_QUERYSTRING_H
-#define INCLUDED_QUERYSTRING_H
+#ifndef INCLUDED_QUERY_STRING_H
+#define INCLUDED_QUERY_STRING_H
 
 #include <map>
 
@@ -15,4 +15,4 @@ public:
    const char* query() { return queryStr; }
 };
 
-#endif // INCLUDED_QUERYSTRING_H
+#endif // INCLUDED_QUERY_STRING_H

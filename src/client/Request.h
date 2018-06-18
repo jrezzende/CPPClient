@@ -24,7 +24,7 @@ class Request
    
    const char* host() { return requestHost.composeHost(); }
    const char* body() { return curlmsg.bodyRequest(); }
-   const curl_slist* header() { return curlmsg.headersRequests; }
+   const curl_slist* header() { return curlmsg.headersRequests(); }
 };
 
 #endif // !INCLUDED_REQUEST_H

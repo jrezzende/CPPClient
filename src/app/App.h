@@ -4,10 +4,9 @@
 
 class App
 {
-   App()= default;
-   ~App()= default;
-
-   int curltest();
+public:
+   App() = default;
+   ~App() = default;
 };
 
 #endif // APP_H

@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.9)
 project(app CXX)
 
+include_directories(${CURL_INCLUDE_DIRS})
+
 set(
 	APP_HEADERS
 	App.h
@@ -28,3 +30,5 @@ add_custom_command(
 	COMMAND ${CMAKE_COMMAND} -E copy
 			${CURL_DLLS_DIR}
 			${CMAKE_CURRENT_BINARY_DIR}/Release)
+			
+target_link_libraries(app curl)

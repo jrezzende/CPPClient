@@ -1,6 +1,6 @@
 #pragma once
-#ifndef INCLUDED_HTTPMETHODS_H
-#define INCLUDED_HTTPMETHODS_H
+#ifndef INCLUDED_HTTP_METHODS_H
+#define INCLUDED_HTTP_METHODS_H
 
 #include "curl\curl.h"
 #include "Response.h"
@@ -24,7 +24,7 @@ public:
    virtual ~HTTPMethods()= default;
    HTTPMethods()= default;
 
-   virtual Response request(Request& req);
+   virtual Response answer(Request& req);
 };
 
-#endif // !INCLUDED_HTTPMETHODS_H
+#endif // !INCLUDED_HTTP_METHODS_H

@@ -8,8 +8,7 @@ include_directories(${RAPIDJSON_INCLUDE_DIRS})
 
 set(
 	CLIENT_HEADERS
-	Client.h
-	HTTPStatusCode.h
+	ClientHTTP.h
 	Header.h
 	Response.h
 	Request.h
@@ -18,14 +17,18 @@ set(
 	MessageComposer.h
 	CurlMessage.h
 	HTTPMethods.h
-	PostMethod.h
-	GetMethod.h
+	HTTPPostMethod.h
+	HTTPGetMethod.h
+	CurleThrower.h
 )
 
 set(
 	CLIENT_SOURCES
-	Client.cpp
+	ClientHTTP.cpp
 	Host.cpp
+	HTTPMethods.cpp
+	HTTPGetMethod.cpp
+	HTTPPostMethod.cpp
 )
 
 add_library(client STATIC ${CLIENT_HEADERS} ${CLIENT_SOURCES})
