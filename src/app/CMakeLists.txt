@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.9)
 project(app CXX)
 
+include_directories(${RAPIDJSON_INCLUDE_DIRS})
 include_directories(${CURL_INCLUDE_DIRS})
 
 set(
@@ -32,3 +33,4 @@ add_custom_command(
 			${CMAKE_CURRENT_BINARY_DIR}/Release)
 			
 target_link_libraries(app curl)
+target_link_libraries(app client)

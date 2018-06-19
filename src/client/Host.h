@@ -5,7 +5,7 @@
 #include <string>
 #include "QueryString.h"
 
-namespace { const unsigned short HTTP = 80; const unsigned short HTTPS = 443; }
+namespace { const unsigned short HTTPDEFAULT = 80; const unsigned short HTTPS = 443; }
 
 class Host
 {
@@ -24,7 +24,6 @@ public:
 
    const char* route;
    const char* address;
-
    const char* composeHost();
 };
 

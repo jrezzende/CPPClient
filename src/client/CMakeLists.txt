@@ -1,14 +1,11 @@
 cmake_minimum_required(VERSION 3.9)
 project(client CXX)
 
-include_directories(${RAPIDJSON_INCLUDE_DIRS})
-
 include_directories(${CURL_INCLUDE_DIRS})
-include_directories(${RAPIDJSON_INCLUDE_DIRS})
 
 set(
 	CLIENT_HEADERS
-	ClientHTTP.h
+	HTTPClient.h
 	Header.h
 	Response.h
 	Request.h
@@ -20,15 +17,17 @@ set(
 	HTTPPostMethod.h
 	HTTPGetMethod.h
 	CurleThrower.h
+	WebRequestClient.h
 )
 
 set(
 	CLIENT_SOURCES
-	ClientHTTP.cpp
+	HTTPClient.cpp
 	Host.cpp
 	HTTPMethods.cpp
 	HTTPGetMethod.cpp
 	HTTPPostMethod.cpp
+	WebRequestClient.cpp
 )
 
 add_library(client STATIC ${CLIENT_HEADERS} ${CLIENT_SOURCES})

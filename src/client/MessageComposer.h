@@ -18,7 +18,7 @@ public:
    MessageComposer(const char* _key, const char* _value, const MessageType _type) :
       key(_key), value(_value), type(_type) {}
 
-   std::string fomatMessage() {
+   std::string formatMessage() {
       std::string msg= key;
       type == MessageType::HEADER ? msg.append(": ") : msg.append("="); msg.append(value).c_str();
       return msg;

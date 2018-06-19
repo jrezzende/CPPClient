@@ -1,29 +1,6 @@
 #include "HTTPMethods.h"
 #include <string>
 
-std::string* header;
-
-std::size_t HTTPMethods::bodyCallBack(const char* data, std::size_t size, std::size_t nmemb, void* userData)
-{  
-   if (!header)
-      header= new std::string("");
-   header->append(std::string(data, nmemb*size));
-   return size * nmemb;;
-}
-
-std::size_t HTTPMethods::headerCallBack(const char* data, std::size_t size, std::size_t nmemb, void* userData)
-{
-   auto response= reinterpret_cast<Response*>(userData);
-   if (header) {
-      response->appendHeaderParam(*header);
-      delete header;
-      header= nullptr;
-   }
-   response->appendBodyParam(std::string(data, nmemb*size));
-
-   return size* nmemb;
-}
-
 Response HTTPMethods::answer(Request& req)
 {
    CURLcode res;
@@ -50,4 +27,29 @@ Response HTTPMethods::answer(Request& req)
    badResponse.setStatusCode(res);
 
    return badResponse;
+}
+
+/////////////////////////////////////////////////////
+
+std::string* header;
+
+std::size_t bodyCallBack(const char* data, std::size_t size, std::size_t nmemb, void* userData)
+{
+   if (!header)
+      header = new std::string("");
+   header->append(std::string(data, nmemb*size));
+   return size * nmemb;;
+}
+
+std::size_t headerCallBack(const char* data, std::size_t size, std::size_t nmemb, void* userData)
+{
+   auto response = reinterpret_cast<Response*>(userData);
+   if (header) {
+      response->appendHeaderParam(*header);
+      delete header;
+      header = nullptr;
+   }
+   response->appendBodyParam(std::string(data, nmemb*size));
+
+   return size * nmemb;
 }

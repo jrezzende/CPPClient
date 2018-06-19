@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "HTTPPostMethod.h"
-#include "CurleThrower.h"
+//#include "CurleThrower.h"
 
 Response HTTPPostMethod::answer(Request& request)
 {
@@ -18,5 +18,6 @@ Response HTTPPostMethod::answer(Request& request)
    if(!resp.statusCode())
       return resp;
    else
-      throw CurleThrower::newException(resp.statusCode());
+      throw resp.statusCode();
+      //throw CurleThrower::newException(resp.statusCode());
 }

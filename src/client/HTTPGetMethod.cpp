@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "HTTPGetMethod.h"
-#include "CurleThrower.h"
+//#include "CurleThrower.h"
 
 Response HTTPGetMethod::answer(Request& request)
 {
@@ -17,5 +17,6 @@ Response HTTPGetMethod::answer(Request& request)
    if (!resp.statusCode())
       return resp;
    else
-      throw CurleThrower::newException(resp.statusCode());
+      throw resp.statusCode();
+      //throw CurleThrower::newException(resp.statusCode());
 }

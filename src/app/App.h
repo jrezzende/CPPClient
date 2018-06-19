@@ -1,12 +1,14 @@
 #pragma once
-#ifndef APP_H
-#define APP_H
+#ifndef INCLUDED_APP_H
+#define INCLUDED_APP_H
 
 class App
 {
 public:
-   App() = default;
-   ~App() = default;
+   App()= default;
+   ~App()= default;
+
+   void performTest();
 };
 
-#endif // APP_H
+#endif // INCLUDED_APP_H

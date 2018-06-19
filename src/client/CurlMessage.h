@@ -24,9 +24,13 @@ public:
 
    const char* bodyRequest() {
       std::string req;
+
       for (auto param : bodyParams)
          req.append(param).append("&");
-      req.erase(req.at(req.length() - 1));
+
+      if (req.length() - 1 == '&')
+         req.erase(req.at(req.length() - 1));
+
       return req.c_str();
    }
 };
