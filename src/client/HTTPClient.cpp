@@ -1,12 +1,12 @@
 #include "HTTPClient.h"
-#include "MessageComposer.h"
-#include "QueryString.h"
+#include "HeaderParams.h"
+#include "BodyParams.h"
 #include "HTTPGetMethod.h"
 #include "HTTPPostMethod.h"
 
 HTTPClient::HTTPClient(const char* host) : WebRequestClient(host)
 {
-   request.addHeaderParam(MessageComposer("Accept", "application/json", MessageType::HEADER).formatMessage());
+   request.addHeaderParam(HeaderParams("Accept", "application/json"));
 }
 
 HTTPClient& HTTPClient::port(unsigned short port)
@@ -23,20 +23,20 @@ HTTPClient& HTTPClient::route(const char* route)
 
 HTTPClient& HTTPClient::headerParams(const char * key, const char * value)
 {
-   request.addHeaderParam(MessageComposer(key, value, MessageType::HEADER).formatMessage());
+   request.addHeaderParam(HeaderParams(key, value));
    return *this;
 }
 
 HTTPClient& HTTPClient::bodyParams(const char * key, const char * value)
 {
-   request.addBodyParam(MessageComposer(key, value, MessageType::BODY).formatMessage());
+   request.addBodyParam(BodyParams(key, value));
    return *this;
 }
 
 Response& HTTPClient::get(const char* query)
 {
    if (query)
-      request.setQuery(QueryString(*query));
+      request.setQuery(query);
 
    return require(new HTTPGetMethod());
 }

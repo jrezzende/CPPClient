@@ -23,17 +23,23 @@ void Host::appendQuery()
    if (queryString) {
       if (url[url.size() - 1] != '/')
          url.append("/");
-      url.append(queryString->query());
+      url.append(queryString);
    }
 }
 
 const char * Host::composeHost()
 {
-   url.append("http://").append(address);
+   url= std::string();
+   url.append("http://");
+
+   hostAddress= "localhost";
+   route= "audaces/idea/api/v1/";
+   queryString = "query/?reference=BUTTON&amp;type=raw_material";
+   url.append(hostAddress);
 
    appendPort();
    appendRoute();
    appendQuery();
-
+    
    return url.c_str();
 }

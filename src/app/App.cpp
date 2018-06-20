@@ -6,6 +6,7 @@
 #include "rapidjson\prettywriter.h"
 #include "rapidjson\stringbuffer.h"
 
+#include "curl\curl.h"
 #include "HTTPClient.h"
 
 void App::performTest()
@@ -29,6 +30,7 @@ void App::performTest()
 
       std::cout << buffer.GetString() << std::endl;
    } catch (CURLcode errorCode) {
-      std::cout << errorCode << std::endl;
+      std::string codeStr= curl_easy_strerror(errorCode);
+      std::cout << codeStr << std::endl;
    }
 }

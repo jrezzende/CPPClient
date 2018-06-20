@@ -3,7 +3,6 @@
 #define INCLUDED_HOST_H
 
 #include <string>
-#include "QueryString.h"
 
 namespace { const unsigned short HTTPDEFAULT = 80; const unsigned short HTTPS = 443; }
 
@@ -20,10 +19,10 @@ public:
 
    unsigned short port;
 
-   QueryString* queryString;
+   const char* queryString;
 
-   const char* route;
-   const char* address;
+   const char* route= nullptr;
+   const char* hostAddress= nullptr;
    const char* composeHost();
 };
 

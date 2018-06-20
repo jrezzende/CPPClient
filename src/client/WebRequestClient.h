@@ -4,7 +4,6 @@
 
 #include "Request.h"
 #include "Response.h"
-#include "QueryString.h"
 
 class HTTPMethods;
 

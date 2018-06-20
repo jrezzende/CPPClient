@@ -9,10 +9,11 @@ set(
 	Header.h
 	Response.h
 	Request.h
-	QueryString.h
 	Host.h
-	MessageComposer.h
-	CurlMessage.h
+	HeaderParams.h
+	BodyParams.h
+	CurlHeaderMessage.h
+	CurlBodyMessage.h
 	HTTPMethods.h
 	HTTPPostMethod.h
 	HTTPGetMethod.h
