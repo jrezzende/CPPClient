@@ -4,7 +4,7 @@
 #include "HTTPGetMethod.h"
 #include "HTTPPostMethod.h"
 
-HTTPClient::HTTPClient(const char* host) : WebRequestClient(host)
+HTTPClient::HTTPClient(const char* hostAddress) : UserAgent(hostAddress)
 {
    request.addHeaderParam(HeaderParams("Accept", "application/json"));
 }
@@ -38,6 +38,7 @@ Response& HTTPClient::get(const char* query)
    if (query)
       request.setQuery(query);
 
+   request.composeURL();
    return require(new HTTPGetMethod());
 }
 

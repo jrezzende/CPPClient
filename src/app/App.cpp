@@ -16,8 +16,8 @@ void App::performTest()
       "localhost")
       .port(5000)
       .route("audaces/idea/api/v1/")
-      .headerParams("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9")
-      .get("query/?reference=BUTTON&amp;type=raw_material"
+      .headerParams("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.E7anaGokIC_y1qEp1XibXjvDNRADhE_pB8WnudVKptw")
+      .get("query/?reference=BUTTON&type=raw_material"
       );
 
       rapidjson::Document document;
@@ -29,6 +29,7 @@ void App::performTest()
       document.Accept(writer);
 
       std::cout << buffer.GetString() << std::endl;
+
    } catch (CURLcode errorCode) {
       std::string codeStr= curl_easy_strerror(errorCode);
       std::cout << codeStr << std::endl;

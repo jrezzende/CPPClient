@@ -18,7 +18,7 @@ set(
 	HTTPPostMethod.h
 	HTTPGetMethod.h
 	CurleThrower.h
-	WebRequestClient.h
+	UserAgent.h
 )
 
 set(
@@ -28,7 +28,7 @@ set(
 	HTTPMethods.cpp
 	HTTPGetMethod.cpp
 	HTTPPostMethod.cpp
-	WebRequestClient.cpp
+	UserAgent.cpp
 )
 
 add_library(client STATIC ${CLIENT_HEADERS} ${CLIENT_SOURCES})

@@ -25,7 +25,8 @@ class Request
    void addBodyParam(BodyParams& content) { bodyMsg.appendBodyMessage(content); }
    void addHeaderParam(HeaderParams& content) { headerMsg.appendHeaderMessage(content); }
    
-   const char* host() { return requestHost.composeHost(); }
+   const char* composeURL() { return requestHost.compose(); }
+   Host& host() { return requestHost; }
    const char* body() { return bodyMsg.bodyRequest(); }
    const curl_slist* header() { return headerMsg.headersRequests(); }
 };

@@ -6,9 +6,6 @@
 #include "Response.h"
 #include "Request.h"
 
-static std::size_t bodyCallBack(const char* ptr, std::size_t size, std::size_t nmemb, void* data);
-static std::size_t headerCallBack(const char* ptr, std::size_t size, std::size_t nmemb, void* data);
-
 enum class METHOD {
    GET= 1,
    POST
@@ -18,12 +15,11 @@ class HTTPMethods
 {
 protected:
    CURL* curl;
-   Response content;
+   Response* content;
 
 public:
    virtual ~HTTPMethods()= default;
    HTTPMethods()= default;
-
    virtual Response answer(Request& req);
 };
 

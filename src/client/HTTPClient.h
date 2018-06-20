@@ -2,13 +2,13 @@
 #ifndef INCLUDED_HTTP_CLIENT_H
 #define INCLUDED_HTTP_CLIENT_H
 
-#include "WebRequestClient.h"
+#include "UserAgent.h"
 
-class HTTPClient : public WebRequestClient
+class HTTPClient : public UserAgent
 {
 public:
    ~HTTPClient()= default;
-   HTTPClient(const char* host);
+   HTTPClient(const char* hostAddress);
 
    HTTPClient& port(unsigned short port) override;
    HTTPClient& route(const char* route) override;

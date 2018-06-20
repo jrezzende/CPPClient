@@ -1,11 +1,12 @@
 #include "Host.h"
+#include <sstream>
 
 void Host::appendPort()
 {
    if (!port)
       return;
 
-   url.append(":").append(std::to_string(port));
+   url_.append(":").append(std::to_string(port));
 }
 
 void Host::appendRoute()
@@ -14,32 +15,29 @@ void Host::appendRoute()
       return;
 
    if (route[0] != '/')
-      url.append("/");
-   url.append(route);
+      url_.append("/");
+   url_.append(route);
 }
 
 void Host::appendQuery()
 {
    if (queryString) {
-      if (url[url.size() - 1] != '/')
-         url.append("/");
-      url.append(queryString);
+      if (url_[url_.size() - 1] != '/')
+         url_.append("/");
+      url_.append(queryString);
    }
 }
 
-const char * Host::composeHost()
+const char* Host::compose()
 {
-   url= std::string();
-   url.append("http://");
-
+   url_ = std::string();
+   url_.append("http://");
    hostAddress= "localhost";
-   route= "audaces/idea/api/v1/";
-   queryString = "query/?reference=BUTTON&amp;type=raw_material";
-   url.append(hostAddress);
 
+   url_.append(hostAddress);
    appendPort();
    appendRoute();
    appendQuery();
     
-   return url.c_str();
+   return url_.c_str();
 }

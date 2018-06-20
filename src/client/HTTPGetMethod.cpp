@@ -1,22 +1,20 @@
 #include <iostream>
 
 #include "HTTPGetMethod.h"
-//#include "CurleThrower.h"
 
 Response HTTPGetMethod::answer(Request& request)
 {
-   Response resp;
+   Response* resp;
    curl= curl_easy_init();
 
    if (curl) {
-      curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "Get method.");
+      curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "GET");
 
-      resp= HTTPMethods::answer(request);
+      resp= &HTTPMethods::answer(request);
    }
 
-   if (!resp.statusCode())
-      return resp;
+   if (!resp->statusCode())
+      return *resp;
    else
-      throw resp.statusCode();
-      //throw CurleThrower::newException(resp.statusCode());
+      throw resp->statusCode();
 }
