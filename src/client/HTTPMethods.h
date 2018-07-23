@@ -19,7 +19,7 @@ protected:
 
 public:
    virtual ~HTTPMethods()= default;
-   HTTPMethods()= default;
+   HTTPMethods() { content= new Response(); }
    virtual Response answer(Request& req);
 };
 
